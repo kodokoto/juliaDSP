@@ -1,10 +1,3 @@
-/**
-	@file
-	simplemsp~: a simple audio object for Max
-	original by: jeremy bernstein, jeremy@bootsquad.com
-	@ingroup examples
-*/
-
 #include "ext.h"			// standard Max include, always required (except in Jitter)
 #include "ext_obex.h"		// required for "new" style objects
 #include "z_dsp.h"			// required for MSP objects
@@ -105,43 +98,42 @@ void simplemsp_dsp64(t_dspnode *x, t_object *dsp64, short *count, double sampler
 // this is the 64-bit perform method audio vectors
 void simplemsp_perform64(t_dspnode *x, t_object *dsp64, double **ins, long numins, double **outs, long numouts, long sampleframes, long flags, void *userparam)
 {
-
-    (void)jl_eval_string("print(4)"); // even just calling print from julia breaks things
-    
-    // this chunk of code currently crashes max
-    
-    //    (void)jl_eval_string("include(\"dsp_source.jl\")");
-    //    (void)jl_eval_string("using .dsp_source");    jl_module_t* juliaDSP = (jl_module_t*)jl_eval_string("dsp"); // get module
-    //    jl_function_t *func = jl_get_function(juliaDSP, "dsp"); // get dsp function
-    //
-    //
-    //    // left/right inlets and outlets
-    //    double *inLeft = outs[0];
-    //    double *inRight = outs[1];
-    //    double *outLeft = outs[0];
-    //    double *outRight = outs[1];
-    //
-    //    // julia float64 array type
-    //    jl_value_t* array_type = jl_apply_array_type((jl_value_t*)jl_float64_type, 1);
-    //
-    //    // julia array pointers to the left and right inputs
-    //    jl_array_t *left = jl_ptr_to_array_1d(array_type, inLeft, sampleframes, 0);
-    //    jl_array_t *right = jl_ptr_to_array_1d(array_type, inRight, sampleframes, 0);
-    //
-    //    // call the dsp julia function, passing through the left/right channels as arguments
-    //    jl_value_t *sampleRate = jl_box_uint64(sampleframes);
-    //    jl_call3(func, (jl_value_t*)left, (jl_value_t*)right, sampleRate);
-    
-    
+    // Getting the left and right inlets/outlets
     t_double *inLeft = ins[0];
     t_double *outLeft = outs[0];
     t_double *inRight = ins[1];
     t_double *outRight = outs[1];
     int n = sampleframes;
-
     
-    while (n--)
-        *outLeft++ = *inLeft++;
-        *outRight++ = *inRight++;
+    // this chunk of code currently crashes max
+    
+    (void)jl_eval_string("print(\"Hello from julia\")"); // even just calling print from julia breaks things
+        
+    // load julia code
+    (void)jl_eval_string("include(\"dsp_source.jl\")");
+    
+    // get module
+    (void)jl_eval_string("using .dsp_source");
+    jl_module_t* juliaDSP = (jl_module_t*)jl_eval_string("dsp");
+    
+    // get dsp function
+    jl_function_t *func = jl_get_function(juliaDSP, "dsp");
+
+    // julia float64 array type
+    jl_value_t* array_type = jl_apply_array_type((jl_value_t*)jl_float64_type, 1);
+
+    // connecting julia array to the left and right C arrays
+    jl_array_t *left = jl_ptr_to_array_1d(array_type, inLeft, n, 0);
+    jl_array_t *right = jl_ptr_to_array_1d(array_type, inRight, n, 0);
+
+    // boxing the samplerate
+    jl_value_t *sampleRate = jl_box_uint64(n);
+    
+    // call the dsp julia function, passing through the left/right channels as arguments
+    jl_call3(func, (jl_value_t*)left, (jl_value_t*)right, sampleRate);
+    
+//    while (n--)
+//        *outLeft++ = *inLeft++;
+//        *outRight++ = *inRight++;
 }
 
