@@ -1,0 +1,11 @@
+/Users/modii/Documents/Development/max4live/mxos/build/CMakeFiles/ALL_BUILD.dir
+/Users/modii/Documents/Development/max4live/mxos/build/CMakeFiles/ZERO_CHECK.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/dspnode~/CMakeFiles/dspnode_tilde.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/dspnode~/CMakeFiles/ALL_BUILD.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/dspnode~/CMakeFiles/ZERO_CHECK.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/julia~/CMakeFiles/julia_tilde.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/julia~/CMakeFiles/ALL_BUILD.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/julia~/CMakeFiles/ZERO_CHECK.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/simplemsp~/CMakeFiles/simplemsp_tilde.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/simplemsp~/CMakeFiles/ALL_BUILD.dir
+/Users/modii/Documents/Development/max4live/mxos/build/source/projects/simplemsp~/CMakeFiles/ZERO_CHECK.dir

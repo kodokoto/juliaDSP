@@ -1,0 +1,4 @@
+max objectfile mc.julia~ mc.wrapper~ julia~;
+max objectfile mc.simplemsp~ mc.wrapper~ simplemsp~;
+max objectfile mc.dspnode~ mc.wrapper~ dspnode~;
+
