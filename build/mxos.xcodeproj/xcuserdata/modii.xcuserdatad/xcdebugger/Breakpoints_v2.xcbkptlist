@@ -7,15 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "88BFB7C6-48A1-4FDF-802F-EFD16E97A5D8"
+            uuid = "9A6238D9-43EB-4BC8-B9E3-A0105D7B3682"
             shouldBeEnabled = "Yes"
+            nameForDebugger = "Julieprint"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "source/projects/dspnode~/dspnode~.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "simplemsp_perform64(x, dsp64, ins, numins, outs, numouts, sampleframes, flags, userparam)"
             landmarkType = "9">
          </BreakpointContent>
