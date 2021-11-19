@@ -4,7 +4,7 @@
 
 
 double gain(double gain_inp, double input) {
-     return gain_inp+input;
+     return gain_inp*input;
 }
 
 typedef double (*func)(double, double);
