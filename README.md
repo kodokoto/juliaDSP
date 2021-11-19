@@ -19,6 +19,8 @@ Builds but crashes when DSP is turned on.
 
 <pre><code>
 brew install--cask julia
+
+git submodule update --init --recursive
 mkdir build && cd build
 cmake -G Xcode ..
 
