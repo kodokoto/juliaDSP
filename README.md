@@ -11,7 +11,22 @@ end
 ```
 
 # Current state
-Builds but crashes
+Builds but crashes when DSP is turned on.
+
+
+# Build Instructions
+
+
+<pre><code>
+brew install--cask julia
+mkdir build && cd build
+cmake -G Xcode ..
+
+</code></pre>
+
+To run this mxo you must also have [Max 8](https://cycling74.com/downloads) installed
+
+
 
 # Isssues
 - Adding a `jl_` function call from Julia's C API crashes Max when you add the mxo to the project. For example simply adding this:
