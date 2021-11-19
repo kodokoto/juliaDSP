@@ -109,6 +109,8 @@ void simplemsp_perform64(t_dspnode *x, t_object *dsp64, double **ins, long numin
     
     (void)jl_eval_string("print(\"Hello from julia\")"); // even just calling print from julia breaks things
         
+    //================= Julia API ================
+    
     // load julia code
     (void)jl_eval_string("include(\"dsp_source.jl\")");
     
