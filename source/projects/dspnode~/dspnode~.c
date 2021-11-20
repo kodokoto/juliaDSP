@@ -44,8 +44,6 @@ void ext_main(void *r)
 	class_addmethod(c, (method)dspnode_float,		"float",	A_FLOAT, 0);
 	class_addmethod(c, (method)dspnode_dsp64,		"dsp64",	A_CANT, 0);
 	class_addmethod(c, (method)dspnode_assist,	    "assist",	A_CANT, 0);
-//    class_addmethod(c, (method)gain,                "gain",     A_CANT, 0);
-
 	class_dspinit(c);
 	class_register(CLASS_BOX, c);
 	dspnode_class = c;
@@ -113,8 +111,7 @@ void dspnode_perform64(t_dspnode *x, t_object *dsp64, double **ins, long numins,
     
     while(n--) {
         *outLeft++ = (x->funcPtr)(gain, *inLeft++);
-        *outLeft++ = (x->funcPtr)(gain, *inLeft++);
+        *outRight++ = (x->funcPtr)(gain, *inRight++);
     }
-
 }
 
